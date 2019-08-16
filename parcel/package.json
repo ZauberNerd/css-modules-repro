@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "parcel build index.js",
-    "test": "node dist/index.js",
-    "start": "yarn build && yarn test"
+    "build-actual": "parcel build index-actual.js",
+    "build-expected": "parcel build index-expected.js",
+    "test": "node dist/index.js"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.3",

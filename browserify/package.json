@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "browserify -p [ css-modulesify -o dist/styles.css ] index.js -o dist/index.js",
-    "test": "node dist/index.js",
-    "start": "yarn build && yarn test"
+    "build-actual": "browserify -p [ css-modulesify -o dist/styles.css ] index-actual.js -o dist/index.js",
+    "build-expected": "browserify -p [ css-modulesify -o dist/styles.css ] index-expected.js -o dist/index.js",
+    "test": "node dist/index.js"
   },
   "devDependencies": {
     "browserify": "^16.5.0",

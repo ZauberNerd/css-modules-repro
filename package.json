@@ -4,11 +4,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start:browserify": "cd browserify && yarn start",
-    "start:parcel": "cd parcel && yarn start",
-    "start:rollup": "cd rollup && yarn start",
-    "start:webpack": "cd webpack && yarn start",
-    "start": "yarn start:browserify; yarn start:parcel; yarn start:rollup; yarn start:webpack"
+    "build:browserify:actual": "cd browserify && yarn build-actual && yarn test",
+    "build:browserify:expected": "cd browserify && yarn build-expected && yarn test",
+    "build:parcel:actual": "cd parcel && yarn build-actual && yarn test",
+    "build:parcel:expected": "cd parcel && yarn build-expected && yarn test",
+    "build:rollup:actual": "cd rollup && yarn build-actual && yarn test",
+    "build:rollup:expected": "cd rollup && yarn build-expected && yarn test",
+    "build:webpack:actual": "cd webpack && yarn build-actual && yarn test",
+    "build:webpack:expected": "cd webpack && yarn build-expected && yarn test"
   },
   "workspaces": [
     "browserify/",

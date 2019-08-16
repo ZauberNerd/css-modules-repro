@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "test": "node dist/index.js",
-    "start": "yarn build && yarn test"
+    "build-actual": "webpack index-actual.js",
+    "build-expected": "webpack index-expected.js",
+    "test": "node dist/index.js"
   },
   "devDependencies": {
     "css-loader": "^3.2.0",

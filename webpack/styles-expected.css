@@ -1,0 +1,8 @@
+@import "variables/variables.css";
+@import "./global.css";
+
+.my-styles {
+  color: var(--red);
+  composes: padding from './padding.css';
+  composes: round from "utils/index.css";
+}

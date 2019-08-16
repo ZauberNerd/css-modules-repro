@@ -4,9 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config",
-    "test": "node dist/index.js",
-    "start": "yarn build && yarn test"
+    "build-actual": "rollup index-actual.js --config",
+    "build-expected": "rollup index-expected.js --config",
+    "test": "node dist/index.js"
   },
   "devDependencies": {
     "rollup": "^1.19.4",
