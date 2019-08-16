@@ -1,0 +1,15 @@
+{
+  "name": "browserify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "browserify -p [ css-modulesify -o dist/styles.css ] index.js -o dist/index.js",
+    "test": "node dist/index.js",
+    "start": "yarn build && yarn test"
+  },
+  "devDependencies": {
+    "browserify": "^16.5.0",
+    "css-modulesify": "^0.28.0"
+  }
+}

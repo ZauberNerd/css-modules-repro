@@ -1,0 +1,9 @@
+{
+  "name": "variables",
+  "version": "1.0.0",
+  "style": "variables.css",
+  "license": "MIT",
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
+}

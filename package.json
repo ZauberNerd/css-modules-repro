@@ -1,0 +1,20 @@
+{
+  "name": "css-modules-repro",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start:browserify": "cd browserify && yarn start",
+    "start:parcel": "cd parcel && yarn start",
+    "start:rollup": "cd rollup && yarn start",
+    "start:webpack": "cd webpack && yarn start",
+    "start": "yarn start:browserify; yarn start:parcel; yarn start:rollup; yarn start:webpack"
+  },
+  "workspaces": [
+    "browserify/",
+    "parcel/",
+    "rollup/",
+    "webpack/",
+    "packages/*"
+  ]
+}

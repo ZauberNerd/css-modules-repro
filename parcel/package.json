@@ -1,0 +1,15 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build index.js",
+    "test": "node dist/index.js",
+    "start": "yarn build && yarn test"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3",
+    "postcss-modules": "^1.4.1"
+  }
+}
