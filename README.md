@@ -3,7 +3,7 @@
 The [CSS Modules documentation](https://github.com/css-modules/css-modules) states that:
 > All URLs (`url(...)`) and `@imports` are in module request format (`./xxx` and `../xxx` means relative, `xxx` and `xxx/yyy` means in modules folder, i. e. in `node_modules`).
 
-Unfortunately the implementations in the most popular bundlers are quite different or even broken.
+Unfortunately the implementations in the most popular bundlers are quite different and some are even broken.
 
 This is a [yarn workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) monorepo that contains the most minimalistic example apps for four different bundlers to showcase how their implementations differ.
 
@@ -105,10 +105,22 @@ import styles from './styles.css';
 console.log(styles);
 ```
 
-And now some bundlers have problems with `@import "variables/variables.css";`, some have problems with `composes round from "utils/index.css";` and some have problems with both.
-
 ## Findings
 
-- We were not able to get browserify or parcel to compile successfully when trying to compose from a module.
-- Rollup seems to be the only implementation that works as expected.
-- Webpack (and the css-loader) can compile successfully, when packages from node_modules are prepended with a `~` (tilde).
+- browserify and parcel are both able to resolve relative and module requests from `@imports` statements.
+- browserify and parcel were unable to resolve module requests from `composes:` declarations.
+- rollup seems to be the only implementation that works as expected.
+- webpack (and the css-loader) need module requests to start with a `~` (tilde).
+
+The [css-loader](https://github.com/webpack-contrib/css-loader) was able to resolve relative and module requests properly until version 2.0, where it included a breaking change that now requires adding a `~` in front of a module path. There are a lot of issues about this:
+- https://github.com/webpack-contrib/css-loader/issues/861
+- https://github.com/webpack-contrib/css-loader/issues/914
+
+There even is a PR to overwrite the resolution algorithm but unfortunately it has not been merged yet: https://github.com/webpack-contrib/css-loader/pull/933
+
+
+## Questions
+
+So our questions are now:
+- Are our assumptions about how css-modules should resolve wrong?
+- Or are almost all implementations of it wrong?
